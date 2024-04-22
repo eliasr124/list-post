@@ -1,0 +1,15 @@
+<table class="mx-auto text-sm bg-slate-300 mb-3">
+  <thead>
+    <tr>
+      <th class="border p-1 min-w-[150px]">Title</th>
+      <th class="border p-1 min-w-[150px]">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <app-list-table-item
+      class="table-auto contents"
+      *ngFor="let user of users | async"
+      [user]="user"
+    ></app-list-table-item>
+  </tbody>
+</table>

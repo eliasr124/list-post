@@ -1,0 +1,38 @@
+<form
+  [formGroup]="addForm"
+  (ngSubmit)="onSubmit(addForm.value)"
+  class="mx-auto max-w-max text-sm bg-slate-300 text-center mb-3 p-1"
+>
+  <h2 class="text-xl mb-1">Create And List Post</h2>
+
+  <div class="mb-1 flex flex-row gap-1 whitespace-nowrap">
+    <label for="title">Title: </label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      class="w-full"
+      placeholder="Title"
+    />
+  </div>
+
+  <div class="mb-1 flex flex-row gap-1 whitespace-nowrap">
+    <label for="title">Body: </label>
+    <input
+      id="body"
+      type="text"
+      formControlName="body"
+      class="w-full"
+      placeholder="Body"
+    />
+  </div>
+
+  <p class="mb-1">Form Status: {{ addForm.status }}</p>
+  <button
+    type="submit"
+    [disabled]="!addForm.valid"
+    class="bg-blue-500 hover:bg-blue-700 text-white p-1 rounded"
+  >
+    Submit
+  </button>
+</form>
