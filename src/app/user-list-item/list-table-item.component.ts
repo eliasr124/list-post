@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IUser } from '../models/list-post.model';
 import { ListService } from '../services/list.service';
+import { IListPost } from '../models/list-post.model';
 
 @Component({
   selector: 'app-list-table-item',
@@ -8,7 +8,7 @@ import { ListService } from '../services/list.service';
   styleUrls: ['./list-table-item.component.css']
 })
 export class UserTableItemComponent {
-  @Input() user!: IUser;
+  @Input() user!: IListPost;
 
   public editUser = false;
 
@@ -19,7 +19,7 @@ export class UserTableItemComponent {
   }
 
   changeUser(): void {
-    const { _id, ...user } = this.user;
-    this.listService.updateList(_id, user);
+    const { id, ...user } = this.user;
+    this.listService.updateList(id, this.user);
   }
 }

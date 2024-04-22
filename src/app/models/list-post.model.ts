@@ -1,8 +1,6 @@
 export interface IListPost {
+    userId: number;
+    id: string;
     title: string;
     body: string;
 }
-
-export interface IUser extends IListPost {
-    _id: string;
-  }

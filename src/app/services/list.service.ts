@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IListPost, IUser } from '../models/list-post.model';
+import { IListPost } from '../models/list-post.model';
 import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
@@ -9,13 +9,13 @@ import { BehaviorSubject, tap } from 'rxjs';
 export class ListService {
 
   private baseUrl: string = "https://jsonplaceholder.typicode.com/posts";
-  public users$ = new BehaviorSubject<IUser[]>([]);
+  public users$ = new BehaviorSubject<IListPost[]>([]);
 
 
   constructor(private http: HttpClient) { }
 
   getList() {
-    this.http.get<IUser[]>(this.baseUrl).subscribe((res) => {
+    this.http.get<IListPost[]>(this.baseUrl).subscribe((res) => {
       this.users$.next(res);
     });
   }
@@ -30,8 +30,8 @@ export class ListService {
 
   updateList(id: string, list: IListPost) {
     return this.http
-        .put<IListPost>(`${this.baseUrl}/${id}`, list)
-        .subscribe((res) => {       
+        .put<IListPost>(this.baseUrl + '/' + id,  list)
+        .subscribe((res) => {
           this.getList();
     });
   }

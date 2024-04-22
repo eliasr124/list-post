@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../services/list.service';
 import { BehaviorSubject } from 'rxjs';
-import { IUser } from '../models/list-post.model';
+import { IListPost } from '../models/list-post.model';
 
 @Component({
   selector: 'app-list-table',
@@ -9,7 +9,7 @@ import { IUser } from '../models/list-post.model';
   styleUrls: ['./list-table.component.css']
 })
 export class ListTableComponent implements OnInit {
-  public users!: BehaviorSubject<IUser[]>;
+  public users!: BehaviorSubject<IListPost[]>;
 
   constructor(private listPost: ListService) {
 
@@ -18,7 +18,4 @@ export class ListTableComponent implements OnInit {
     this.listPost.getList();
     this.users = this.listPost.users$;
   }
-
-  
-
 }
