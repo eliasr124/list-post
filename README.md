@@ -1,5 +1,13 @@
 # ListPost
 
+# Run Locally
+
+1. install globally Angular CLI `npm install -g @angular/cli`
+2. clone the repository `git clone git@github.com:eliasr124/list-post.git`
+3. go to folder `cd angular-crud-app`
+4. install npm dependencies `npm install`
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
 
 ## Development server
